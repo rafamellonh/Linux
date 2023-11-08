@@ -1,3 +1,3 @@
-# Valida se o serviço esta online :
+### Valida se o serviço esta online :
 
-'''systemctl status crond.service'''
+```systemctl status crond.service```
