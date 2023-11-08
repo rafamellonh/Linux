@@ -1,5 +1,7 @@
 ### Valida se o serviço esta online :
 
+/etc/crontab
+
 ```systemctl status crond.service```
 
 ```crontab -l``` - Lista as tarefas agendadas
