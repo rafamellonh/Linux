@@ -10,8 +10,12 @@ Minutos(0-59)   -   Horas(0-23)  -   Dia do mês(1-31)   -  mês(1-12)   -  dia 
 
 Nesse comando ele vai ser executado a cada duas horas nos minutos 10/20/30 todos os dias
 
-10/20/30 - */2 - * - * - * 
+10/20/30 */2 * * * 
 
 Aqui sera toda segunda as 9:37 da manha : 
 
-37 - 9 - * - * - 1
+37 9 * * 1
+
+Aqui executa todas as terças das 9 as 17 :
+
+0 9-17 * * * 2
