@@ -8,4 +8,4 @@
 
 Minutos   -   Horas  -   Dia do mês   -  mês   -  dia da semana   -   comando
 
-0-59   -       0-23       1-31            1-12      0-7        
+0-59       -       0-23       1-31            1-12      0-7        
