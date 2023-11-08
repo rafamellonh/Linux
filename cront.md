@@ -6,6 +6,8 @@
 
 ```crontab -e``` - Abre o editor para criar/editar/deletar tarefas
 
+```crontab -r``` - remove as tarefas agendadas CUIDADO
+
 Minutos(0-59)   -   Horas(0-23)  -   Dia do mês(1-31)   -  mês(1-12)   -  dia da semana(0-7)   -   comando
 
 Nesse comando ele vai ser executado a cada duas horas nos minutos 10/20/30 todos os dias
