@@ -16,6 +16,10 @@ Aqui sera toda segunda as 9:37 da manha :
 
 37 9 * * 1
 
-Aqui executa todas as terças das 9 as 17 :
+Aqui executa todas as terças das 9 as 17 
 
 0 9-17 * * * 2
+
+Dois exemplos de execuçao, um a cada minuto e outro a cada 2 minutos
+* * * * * echo $(data) >> /home/rafael/crontTeste.txt
+*/2 * * * * echo $(data) >> /home/rafael/crontTeste2.txt
