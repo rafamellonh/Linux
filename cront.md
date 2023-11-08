@@ -1,6 +1,6 @@
 ### Valida se o serviço esta online :
 
-/etc/crontab
+/etc/crontab (para o sistema e somente o root tem permissao)
 
 ```systemctl status crond.service```
 
