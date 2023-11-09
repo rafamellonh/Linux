@@ -12,3 +12,5 @@ gdisk /dev/sda     (vai trabalhar nesse disco, apos utilise o help para seguir)
 
 
 ### parted
+
+### cfdisk /dev/sda  
