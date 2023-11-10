@@ -21,6 +21,7 @@
 ###### Apache configuration files
 
 The main configuration file
+```
 /etc/httpd/conf/httpd.conf
-
+```
 
