@@ -1,1 +1,2 @@
-### Install Apache HTTPD
+##### Install Apache HTTPD
+'''dnf install httpd'''
