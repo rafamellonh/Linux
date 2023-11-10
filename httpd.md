@@ -80,7 +80,12 @@ restorecon -Rv /srv/site-2.com/
 
 ```
 
+Verifications steps
 
+```
+echo "vHost site01" > /var/www/site01.com/index.html
+echo "vHost site02" > /var/www/site02.com/index.html
+```
 
 
 
