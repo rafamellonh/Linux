@@ -41,6 +41,7 @@ To set multiple domains, add the parameter to the configuration and specify the 
 ```ErrorLog``` sets the path to the error log of the virtual host.
 
 ```
+# Host virtual 01
 <VirtualHost *:80>
     DocumentRoot "/var/www/site01.com/"
     ServerName site01.com
@@ -48,7 +49,38 @@ To set multiple domains, add the parameter to the configuration and specify the 
     ErrorLog /var/log/httpd/site01.com_error.log
 </VirtualHost>
 
+# Host virtual 02
+<VirtualHost *:80>
+    DocumentRoot "/var/www/site02.com/"
+    ServerName site02.com
+    CustomLog /var/log/httpd/site02.com_access.log combined
+    ErrorLog /var/log/httpd/site02.com_error.log
+</VirtualHost>
+
 ```
+
+Create the document roots for both virtual hosts
+
+```
+mkdir /var/www/site01.com
+mkdir /var/www/site02.com
+
+```
+
+If you set paths in the parameters that are not within , set the context on both document roots:
+
+
+```DocumentRoot  /var/www/ httpd_sys_content_t ```
+
+```
+semanage fcontext -a -t httpd_sys_content_t "/srv/site01.com(/.*)?"
+restorecon -Rv /srv/site01.com/
+semanage fcontext -a -t httpd_sys_content_t "/srv/site02.com(/.\*)?"
+restorecon -Rv /srv/site-2.com/
+
+```
+
+
 
 
 
