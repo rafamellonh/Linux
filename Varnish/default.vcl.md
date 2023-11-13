@@ -1,3 +1,5 @@
+```
+
 Linux Configuration
 Packages installed
 cloog-ppl-0.15.7-1.2.el6.x86_64.rpm
@@ -422,3 +424,6 @@ server {
 }
 
 NOTE: remove the file /etc/nginx/conf.d/default.conf, as it would interfere with varnish on port 80.
+
+
+```
