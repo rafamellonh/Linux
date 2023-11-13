@@ -89,43 +89,43 @@ RELOAD_VCL=1
 #
 # See varnishd(1) for more information.
 #
-##### Main configuration file. You probably want to change it :)
+# # Main configuration file. You probably want to change it :)
 VARNISH_VCL_CONF=/etc/varnish/default.vcl
 #
-##### Default address and port to bind to
-##### Blank address means all IPv4 and IPv6 interfaces, otherwise specify
-##### a host name, an IPv4 dotted quad, or an IPv6 address in brackets.
+# # Default address and port to bind to
+# # Blank address means all IPv4 and IPv6 interfaces, otherwise specify
+# # a host name, an IPv4 dotted quad, or an IPv6 address in brackets.
 VARNISH_LISTEN_ADDRESS=0.0.0.0
 VARNISH_LISTEN_PORT=80
 #
-##### Telnet admin interface listen address and port
+# # Telnet admin interface listen address and port
 VARNISH_ADMIN_LISTEN_ADDRESS=0.0.0.0
 VARNISH_ADMIN_LISTEN_PORT=6082
 #
-##### Shared secret file for admin interface
+# # Shared secret file for admin interface
 VARNISH_SECRET_FILE=/etc/varnish/secret
 #
-##### The minimum number of worker threads to start
+# # The minimum number of worker threads to start
 VARNISH_MIN_THREADS=50
 #
-##### The Maximum number of worker threads to start
+# # The Maximum number of worker threads to start
 VARNISH_MAX_THREADS=1000
 #
-##### Idle timeout for worker threads
+# # Idle timeout for worker threads
 VARNISH_THREAD_TIMEOUT=120
 #
-##### Cache file size: in bytes, optionally using k / M / G / T suffix,
-##### or in percentage of available disk space using the % suffix.
+# # Cache file size: in bytes, optionally using k / M / G / T suffix,
+# # or in percentage of available disk space using the % suffix.
 VARNISH_STORAGE_SIZE=256M
 #
-##### Backend storage specification
+# # Backend storage specification
 VARNISH_STORAGE="malloc,${VARNISH_STORAGE_SIZE}"
 #
-##### Default TTL used when the backend does not specify one
+# # Default TTL used when the backend does not specify one
 VARNISH_TTL=120
 #
-##### DAEMON_OPTS is used by the init script.  If you add or remove options, make
-##### sure you update this section, too.
+# # DAEMON_OPTS is used by the init script.  If you add or remove options, make
+# # sure you update this section, too.
 DAEMON_OPTS="-a ${VARNISH_LISTEN_ADDRESS}:${VARNISH_LISTEN_PORT} \
              -f ${VARNISH_VCL_CONF} \
              -T ${VARNISH_ADMIN_LISTEN_ADDRESS}:${VARNISH_ADMIN_LISTEN_PORT} \
@@ -155,37 +155,37 @@ import directors;
 # BACKEND : whml13046 #
 #######################
 backend whml13046 {
-  .host = "whml13046";   #### IP or Hostname of backend
-  .port = "80";          #### Port Apache or whatever is listening
+  .host = "whml13046";    # IP or Hostname of backend
+  .port = "80";           # Port Apache or whatever is listening
 
-  .max_connections = 400;  #### Maximum number of open connections towards this backend.
-                           #### If Varnish reaches the maximum Varnish it will start failing connections.
+  .max_connections = 400;   # Maximum number of open connections towards this backend.
+                            # If Varnish reaches the maximum Varnish it will start failing connections.
 
   .probe = {
-   #### Health check 1: Uses complete drupal's health check
+    # Health check 1: Uses complete drupal's health check
     .url = "/robots.txt";
 
-   #### Health check 2: Lightweight way with "HEAD /"
+    # Health check 2: Lightweight way with "HEAD /"
     ##.request =
     ##  "HEAD / HTTP/1.1"
     ##  "Host: localhost"
     ##  "Connection: close"
     ##  "User-Agent: Varnish Health Probe";
 
-    .interval  = 5s;#### Check the health of each backend every 5 seconds (Default is 5s)
-    .timeout   = 1s;#### The timeout for the probe (Default is 2s)
+    .interval  = 5s; # Check the health of each backend every 5 seconds (Default is 5s)
+    .timeout   = 1s; # The timeout for the probe (Default is 2s)
 
-   #### Determine backend health state
-   #### In this example: if 3 (threshold) out of the last 5 (window) polls succeeded the backend is considered healthy,
-   ####                  otherwise it will be marked as sick. In another word, it takes 15sec minimum before a backend
-   ####                  will be marked as healthy
-    .window    = 5; #### How many of the latest polls we examine to determine backend health (Defaults: 8)
-    .threshold = 3; #### How many of the polls must have succeeded for us to consider the backend healthy (Default: 3)
+    # Determine backend health state
+    # In this example: if 3 (threshold) out of the last 5 (window) polls succeeded the backend is considered healthy,
+    #                  otherwise it will be marked as sick. In another word, it takes 15sec minimum before a backend
+    #                  will be marked as healthy
+    .window    = 5;  # How many of the latest polls we examine to determine backend health (Defaults: 8)
+    .threshold = 3;  # How many of the polls must have succeeded for us to consider the backend healthy (Default: 3)
   }
 
-  .first_byte_timeout     = 60s;  #### How long to wait before we receive a first byte from our backend?
-  .connect_timeout        = 5s;    #### How long to wait for a backend connection?
-  .between_bytes_timeout  = 60s;    #### How long to wait between bytes received from our backend?
+  .first_byte_timeout     = 60s;   # How long to wait before we receive a first byte from our backend?
+  .connect_timeout        = 5s;     # How long to wait for a backend connection?
+  .between_bytes_timeout  = 60s;     # How long to wait between bytes received from our backend?
 }
 
 
@@ -203,9 +203,9 @@ backend whml13049 {
     .window    = 5;
     .threshold = 3;
   }
-  .first_byte_timeout     = 60s;  #### How long to wait before we receive a first byte from our backend?
-  .connect_timeout        = 5s;    #### How long to wait for a backend connection?
-  .between_bytes_timeout  = 60s;    #### How long to wait between bytes received from our backend?
+  .first_byte_timeout     = 60s;   # How long to wait before we receive a first byte from our backend?
+  .connect_timeout        = 5s;     # How long to wait for a backend connection?
+  .between_bytes_timeout  = 60s;     # How long to wait between bytes received from our backend?
 }
 
 
@@ -223,9 +223,9 @@ backend whml12788 {
     .window    = 5;
     .threshold = 3;
   }
-  .first_byte_timeout     = 60s;  #### How long to wait before we receive a first byte from our backend?
-  .connect_timeout        = 5s;    #### How long to wait for a backend connection?
-  .between_bytes_timeout  = 60s;    #### How long to wait between bytes received from our backend?
+  .first_byte_timeout     = 60s;   # How long to wait before we receive a first byte from our backend?
+  .connect_timeout        = 5s;     # How long to wait for a backend connection?
+  .between_bytes_timeout  = 60s;     # How long to wait between bytes received from our backend?
 }
 
 
@@ -243,17 +243,17 @@ backend whml12791 {
     .window    = 5;
     .threshold = 3;
   }
-  .first_byte_timeout     = 60s;  #### How long to wait before we receive a first byte from our backend?
-  .connect_timeout        = 5s;    #### How long to wait for a backend connection?
-  .between_bytes_timeout  = 60s;    #### How long to wait between bytes received from our backend?
+  .first_byte_timeout     = 60s;   # How long to wait before we receive a first byte from our backend?
+  .connect_timeout        = 5s;     # How long to wait for a backend connection?
+  .between_bytes_timeout  = 60s;     # How long to wait between bytes received from our backend?
 }
 
 ############
 # VCL_INIT #
 ############
 sub vcl_init {
- #### Called when VCL is loaded, before any requests pass through it.
- #### Typically used to initialize VMODs.
+  # Called when VCL is loaded, before any requests pass through it.
+  # Typically used to initialize VMODs.
   new cluster_uat = directors.round_robin();
   cluster_uat.add_backend(whml13046);
   cluster_uat.add_backend(whml13049);
@@ -263,38 +263,38 @@ sub vcl_init {
 
 
 sub vcl_recv {
- #### Called at the beginning of a request, after the complete request has been received and parsed.
- #### Its purpose is to decide whether or not to serve the request, how to do it, and, if applicable,
- #### which backend to use.
- #### also used to modify the request
- #### Respond to incoming requests (Browser -> Varnish)
+  # Called at the beginning of a request, after the complete request has been received and parsed.
+  # Its purpose is to decide whether or not to serve the request, how to do it, and, if applicable,
+  # which backend to use.
+  # also used to modify the request
+  # Respond to incoming requests (Browser -> Varnish)
   #
- #### Typically you clean up the request here:
- ####  - Define if we want to use X-Varnish-Debug
- ####  - Define backend that will respond
- ####  - Detect device (mobile or desktop)
- ####  - Define X-Forwarded-For
- ####  - Implement PURGE ruleset
- ####  - Remove / Keep incoming cookies we don't need
+  # Typically you clean up the request here:
+  #  - Define if we want to use X-Varnish-Debug
+  #  - Define backend that will respond
+  #  - Detect device (mobile or desktop)
+  #  - Define X-Forwarded-For
+  #  - Implement PURGE ruleset
+  #  - Remove / Keep incoming cookies we don't need
   #
   #
- #### Return:
- ####      return (pass)   : Tell Varnish not to cache the request
- ####      return (purge)  : Tell Varnish to purge item in the cache
- ####      return (hash)   : Tell Varnish to deliver content from cache
- ####      return (pipe)   : Tell Varnish to pipe the request to the backend
+  # Return:
+  #      return (pass)   : Tell Varnish not to cache the request
+  #      return (purge)  : Tell Varnish to purge item in the cache
+  #      return (hash)   : Tell Varnish to deliver content from cache
+  #      return (pipe)   : Tell Varnish to pipe the request to the backend
   #
- #### Note:
- ####      pass differs from pipe.
- ####      With pipe, Pipe short circuits the client and the backend connections.
- ####      Varnish will just sit there and shuffle bytes.
- ####      Varnish will not look at the data being send back and forth,
- ####      So your logs will be incomplete...
-  set req.backend_hint = cluster_uat.backend();#### send all traffic to the vdir director
+  # Note:
+  #      pass differs from pipe.
+  #      With pipe, Pipe short circuits the client and the backend connections.
+  #      Varnish will just sit there and shuffle bytes.
+  #      Varnish will not look at the data being send back and forth,
+  #      So your logs will be incomplete...
+  set req.backend_hint = cluster_uat.backend(); # send all traffic to the vdir director
 
- #### Forward real IP address to the backend
- #### Akamai uses a different header (True-Client-IP) for X-Forwarded-For
- #### https://community.akamai.com/videos/1232
+  # Forward real IP address to the backend
+  # Akamai uses a different header (True-Client-IP) for X-Forwarded-For
+  # https://community.akamai.com/videos/1232
   if (req.http.True-Client-IP) {
       if (req.http.X-Forwarded-For) {
           set req.http.X-Forwarded-For = req.http.X-Forwarded-For + ", " + req.http.True-Client-IP;
@@ -303,9 +303,9 @@ sub vcl_recv {
       }
   }
 
- #### Do not allow outside access to cron.php or install.php or update.php
+  # Do not allow outside access to cron.php or install.php or update.php
   if (req.url ~ "^/(cron|install|update)\.php$") {
- #### Have Varnish throw the error directly.
+  # Have Varnish throw the error directly.
       return (synth(404, "404 - Page not found"));
   }
 
@@ -317,18 +317,18 @@ sub vcl_recv {
 # VCL_PIPE #
 ############
 sub vcl_pipe {
- #### Called upon entering pipe mode.
- #### In this mode, the request is passed on to the backend, and any further data from both the client
- #### and backend is passed on unaltered until either end closes the connection. Basically, Varnish will
- #### degrade into a simple TCP proxy, shuffling bytes back and forth. For a connection in pipe mode,
- #### no other VCL subroutine will ever get called after vcl_pipe.
+  # Called upon entering pipe mode.
+  # In this mode, the request is passed on to the backend, and any further data from both the client
+  # and backend is passed on unaltered until either end closes the connection. Basically, Varnish will
+  # degrade into a simple TCP proxy, shuffling bytes back and forth. For a connection in pipe mode,
+  # no other VCL subroutine will ever get called after vcl_pipe.
 
- #### Note that only the first request to the backend will have
- #### X-Forwarded-For set.  If you use X-Forwarded-For and want to
- #### have it set for all requests, make sure to have:
- #### set bereq.http.connection = "close";
- #### here.  It is not set by default as it might break some broken web
- #### applications, like IIS with NTLM authentication.
+  # Note that only the first request to the backend will have
+  # X-Forwarded-For set.  If you use X-Forwarded-For and want to
+  # have it set for all requests, make sure to have:
+  # set bereq.http.connection = "close";
+  # here.  It is not set by default as it might break some broken web
+  # applications, like IIS with NTLM authentication.
 
   set bereq.http.Connection = "close";
 }
@@ -340,18 +340,18 @@ sub vcl_pipe {
 #############
 sub vcl_synth {
   #
- #### Used to generate custom HTTP response (page or redirects)
+  # Used to generate custom HTTP response (page or redirects)
   #
 
   if (resp.status == 720) {
-   #### We use this special error status 720 to force redirects with 301 (permanent) redirects
-   #### To use this, call the following from anywhere in vcl_recv: return (synth(720, "http://host/new.html"));
+    # We use this special error status 720 to force redirects with 301 (permanent) redirects
+    # To use this, call the following from anywhere in vcl_recv: return (synth(720, "http://host/new.html"));
     set resp.http.Location = resp.reason;
     set resp.status = 301;
     return (deliver);
   } elseif (resp.status == 721) {
-   #### And we use error status 721 to force redirects with a 302 (temporary) redirect
-   #### To use this, call the following from anywhere in vcl_recv: return (synth(720, "http://host/new.html"));
+    # And we use error status 721 to force redirects with a 302 (temporary) redirect
+    # To use this, call the following from anywhere in vcl_recv: return (synth(720, "http://host/new.html"));
     set resp.http.Location = resp.reason;
     set resp.status = 302;
     return (deliver);
@@ -359,11 +359,11 @@ sub vcl_synth {
     set resp.status = 404;
     set resp.http.Content-Type = "text/plain; charset=utf-8";
 
-   #### Use basic message or uncomment to use static HTML template
+    # Use basic message or uncomment to use static HTML template
     synthetic( {"ERROR: Page not found"} );
 
-   #### Example of how to include a static HTML template
-   #### synthetic(std.fileread("/usr/local/etc/varnish/vcl_404_error.html"));
+    # Example of how to include a static HTML template
+    # synthetic(std.fileread("/usr/local/etc/varnish/vcl_404_error.html"));
     return (deliver);
   }
 
@@ -398,8 +398,8 @@ server {
     server_name  _;
 
     ssl                  on;
-    ssl_certificate      /etc/pki/tls/certs/CLIENT.com-multi-bundle.crt;
-    ssl_certificate_key  /etc/pki/tls/private/CLIENT.com-multi.key;
+    ssl_certificate      /etc/pki/tls/certs/client.com-multi-bundle.crt;
+    ssl_certificate_key  /etc/pki/tls/private/client.com-multi.key;
 
     ssl_session_timeout  5m;
 
