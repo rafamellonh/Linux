@@ -40,7 +40,7 @@ u : skip files that are newer on the receiver
 ```
 
 
-
+```
 
 Este script é um script de shell em Bash que realiza uma operação de sincronização de arquivos usando o comando rsync. Vamos passar por cada parte do script:
 
@@ -48,9 +48,9 @@ Este script é um script de shell em Bash que realiza uma operação de sincroni
 
 PROG=$(basename $0): Define uma variável chamada PROG que armazena o nome do script sem o caminho do diretório.
 
-SRC=corpo.build@172.16.130.8:/data/drupal/docroot/sites/default/files: Define o caminho de origem dos arquivos a serem sincronizados.
+SRC=rafael@192.168.2.61:/dados/: Define o caminho de origem dos arquivos a serem sincronizados.
 
-DST=/data/drupal/docroot/sites/default/files/: Define o destino para onde os arquivos serão sincronizados.
+DST=/dados: Define o destino para onde os arquivos serão sincronizados.
 
 LOCKFILE=/tmp/$PROG.lock: Define o caminho para um arquivo de trava que é usado para evitar que o script seja executado simultaneamente por várias instâncias.
 
@@ -81,7 +81,7 @@ rm -f "$LOCKFILE": Remove o arquivo de trava após a conclusão da sincronizaç�
 echo $(date +%Y-%m-%d\ %T) END $PROG: Registra no log a data e hora de término do script.
 
 exit 0: Indica que o script foi concluído com sucesso, e o código de saída é 0.
-
+```
 
 
 
