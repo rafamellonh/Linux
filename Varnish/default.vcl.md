@@ -25,10 +25,10 @@ nginx-1.0.15-12.el6.x86_64.rpm
 nginx-filesystem-1.0.15-12.el6.noarch.rpm
 openssl-1.0.1e-42.el6_7.1.x86_64.rpm 
 Additions to /etc/hosts
-142.101.177.151 whml13046
-142.101.177.150 whml13049
-142.101.177.168 whml12788
-142.101.177.171 whml12791
+142.101.177.151 server01-back
+142.101.177.150 server03-back
+142.101.177.168 server04-back
+142.101.177.171 server06-back
  
 
 Varnish configuration
@@ -154,10 +154,10 @@ import directors;
 
 
 #######################
-# BACKEND : whml13046 #
+# BACKEND : server01-back #
 #######################
-backend whml13046 {
-  .host = "whml13046";    # IP or Hostname of backend
+backend server01-back {
+  .host = "server01-back";    # IP or Hostname of backend
   .port = "80";           # Port Apache or whatever is listening
 
   .max_connections = 400;   # Maximum number of open connections towards this backend.
@@ -192,10 +192,10 @@ backend whml13046 {
 
 
 #######################
-# BACKEND : whml13049 #
+# BACKEND : server03-back #
 #######################
-backend whml13049 {
-  .host = "whml13049";
+backend server03-back {
+  .host = "server03-back";
   .port = "80";
   .max_connections = 400;
   .probe = {
@@ -212,10 +212,10 @@ backend whml13049 {
 
 
 #######################
-# BACKEND : whml12788 #
+# BACKEND : server04-back #
 #######################
-backend whml12788 {
-  .host = "whml12788";
+backend server04-back {
+  .host = "server04-back";
   .port = "80";
   .max_connections = 400;
   .probe = {
@@ -232,10 +232,10 @@ backend whml12788 {
 
 
 #######################
-# BACKEND : whml12791 #
+# BACKEND : server06-back #
 #######################
-backend whml12791 {
-  .host = "whml12791";
+backend server06-back {
+  .host = "server06-back";
   .port = "80";
   .max_connections = 400;
   .probe = {
@@ -257,10 +257,10 @@ sub vcl_init {
   # Called when VCL is loaded, before any requests pass through it.
   # Typically used to initialize VMODs.
   new cluster_uat = directors.round_robin();
-  cluster_uat.add_backend(whml13046);
-  cluster_uat.add_backend(whml13049);
-  cluster_uat.add_backend(whml12788);
-  cluster_uat.add_backend(whml12791);
+  cluster_uat.add_backend(server01-back);
+  cluster_uat.add_backend(server03-back);
+  cluster_uat.add_backend(server04-back);
+  cluster_uat.add_backend(server06-back);
 }
 
 
