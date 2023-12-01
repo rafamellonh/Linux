@@ -28,6 +28,7 @@ exit 0
 
 
 ```
+
 -r : recurse into directories
 l : opy symlinks as symlinks
 t : preserve modification times
@@ -38,7 +39,7 @@ u : skip files that are newer on the receiver
 
 ```
 
-```
+
 Este script é um script de shell em Bash que realiza uma operação de sincronização de arquivos usando o comando rsync. Vamos passar por cada parte do script:
 
 #!/bin/bash: Indica que o script deve ser interpretado pelo Bash.
@@ -79,6 +80,6 @@ echo $(date +%Y-%m-%d\ %T) END $PROG: Registra no log a data e hora de término 
 
 exit 0: Indica que o script foi concluído com sucesso, e o código de saída é 0.
 
-```
+
 
 
