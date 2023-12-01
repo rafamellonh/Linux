@@ -27,8 +27,8 @@ echo $(date +%Y-%m-%d\ %T) END   $PROG
 exit 0
 
 
-```
 
+```
 -r : recurse into directories
 l : opy symlinks as symlinks
 t : preserve modification times
@@ -36,8 +36,9 @@ D : same as --devices --specials
 v : verbose 
 a : preserve almost everything
 u : skip files that are newer on the receiver
-
 ```
+
+
 
 
 Este script é um script de shell em Bash que realiza uma operação de sincronização de arquivos usando o comando rsync. Vamos passar por cada parte do script:
