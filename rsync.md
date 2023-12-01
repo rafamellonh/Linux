@@ -1,4 +1,3 @@
-```
 #! /bin/bash
 
 PROG=$(basename $0)
@@ -26,6 +25,3 @@ rm -f "$LOCKFILE"
 
 echo $(date +%Y-%m-%d\ %T) END   $PROG
 exit 0
-
-```
-
