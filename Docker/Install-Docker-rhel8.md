@@ -26,7 +26,9 @@ For more details on adding a subscription on a RHEL 8 system, see https://access
 Add the external repository by running the following command.
 
 ``` sudo yum config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo ```
+
 ```sudo yum -y install docker-ce --allowerasing```
+
 Start and enable the docker daemon
 
 ```sudo systemctl enable --now docker```
@@ -34,6 +36,7 @@ Start and enable the docker daemon
 Confirm whether the daemon is active by running this command:
 
 ```systemctl is-active docker```
+
 Install docker-compose globally.
 
 Download the binary file from the project’s GitHub page:
@@ -43,4 +46,5 @@ Download the binary file from the project’s GitHub page:
 After the binary file is downloaded, move it to the /usr/local/bin folder, and then make it executable:
 
 ```sudo mv docker-compose /usr/local/bin && sudo chmod +x /usr/local/bin/docker-compose```
+
 ```sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose ```
