@@ -1,6 +1,6 @@
 ##### Commands
 
-* Stat : Mostra informações de status de um arquivo ou sistema de arquivos. Dentre as informações estão o Tamanho, Blocos, Permissões de Acesso, Data e Hora de último acesso,
+* ``` Stat ``` : Mostra informações de status de um arquivo ou sistema de arquivos. Dentre as informações estão o Tamanho, Blocos, Permissões de Acesso, Data e Hora de último acesso,
 Data e Hora de última modificação, etc. e caminho do diretório atual.
 
 ``` Stat /docker
@@ -15,3 +15,5 @@ Change: 2023-01-01 12:34:56.789012345 +0000
 Birth: - 2023-01-01 12:34:50.789012345 +0000
 
 ```
+
+* ``` ln -s  ``` : cria links (atalhos)  ``` ln -s /var/log /opt/log/ ```
