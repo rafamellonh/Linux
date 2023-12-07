@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Criar grupos
+sudo groupadd ti
+sudo groupadd admin
+sudo groupadd rh
+
+# Criar usuários
+sudo useradd -m -s /bin/bash user1
+sudo useradd -m -s /bin/bash user2
+sudo useradd -m -s /bin/bash user3
+
+# Adicionar usuários aos grupos
+sudo usermod -aG ti user1
+sudo usermod -aG admin user2
+sudo usermod -aG rh user3
+
+# Definir senhas para os usuários
+echo "senha_user1" | sudo passwd --stdin user1
+echo "senha_user2" | sudo passwd --stdin user2
+echo "senha_user3" | sudo passwd --stdin user3
+
+# Exibir informações sobre os usuários e grupos criados
+echo "Usuários criados:"
+getent passwd | grep "user[123]"
+
+echo "Grupos criados:"
+getent group | grep "ti\|admin\|rh"
