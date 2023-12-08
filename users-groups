@@ -1,1 +1,7 @@
 
+* /etc/passwd → Armazena as informações dos usuários.
+* /etc/shadow → Armazena a senha dos usuários.
+* /etc/group → Armazena as informações de grupos.
+* /etc/gshadow → Armazena as senhas dos grupos.
+* /etc/logins.defs → Armazena configurações default para a criação de usuários.
+* /etc/skel → Armazena o conteúdo que será copiado ao home do usuário criado.
