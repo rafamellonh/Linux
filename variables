@@ -1,3 +1,16 @@
 # Variavel local 
 LOCAL=valor
 echo $LOCAL
+
+# Variavel global
+export LOCAL=valor
+echo $LOCAL
+
+# Para listar variaveis locais e globais execute o comando set :
+set
+
+# Para listar somente as variaveis globais execute o comando env :
+env
+
+# Para excluir, execute unset :
+unset $LOCAL
