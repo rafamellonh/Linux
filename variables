@@ -13,4 +13,4 @@ set
 env
 
 # Para excluir, execute unset :
-unset $LOCAL
+unset LOCAL
