@@ -44,3 +44,18 @@ $ chage -M 30 -m 1 rafael
 
 * groupadd : adiciona grupos
 $ groupadd financeiro
+
+* gpasswd : adiciona usuarios no grupo
+$ gpasswd -a rafael financeiro
+
+
+
+
+
+
+
+
+
+
+
+
