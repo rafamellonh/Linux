@@ -28,3 +28,10 @@ timedatectl
 TZ="America/New_York" date   : verifica o timezone
 timedatectl list-timezones | grep -i "Sao"
 ```
+
+* yum - rpm
+```
+rpm -qa   (lista todos apps instalados)
+rpm -qa | grep htop
+rpm -qi bash   (verifica o status do app instalado)
+```
