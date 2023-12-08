@@ -48,7 +48,11 @@ $ groupadd financeiro
 * gpasswd : adiciona usuarios no grupo
 $ gpasswd -a rafael financeiro
 
+* chown : altera o dono do grupo da pasta
+$ chown rafael financeiro
 
+* chgrp : relaciona o grupo ao diretorio
+$ chgrp financeiro financeiro
 
 
 
