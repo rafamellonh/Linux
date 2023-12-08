@@ -1,0 +1,25 @@
+* gg — Move o cursor para a linha do arquivo.
+* G — Move o cursor para a ultima linha do arquivo.
+* yy — Copia a linha onde o cursor esta posicionado.
+* p — Cola uma ou mais linhas copiadas ou recortadas
+* cc — Recorta a linha onde o cursor esta posicionado.
+* /string — Permite pesquisar uma string no arquivo. O mesmo resultado pode ser obtido
+usando ?string.
+* n — Repete a ultima pesquisa realizada.
+* N — Repete a ultima pesquisa realizada, mas na direção oposta..
+
+*  :%s/PALAVRA-PESQUISADA/PALAVRA-PARA-COLOCAR-NO-LUGAR
+* vim -o : abre dois arquivos ao mesmo tempo
+
+* Tecle :10 d para excluir somente a linha 10 
+* Tecle :1;5 d para excluir o intervalo da linha 1 a 5
+* Tecle :1;5 y para copiar o intervalo da linha 1 a 5 
+* Tecle :10 para movimentar o cursor na linha 10  
+* Tecle p para colar as linhas copiadas
+
+* Tecle :1;10 s/nologin/yeslogin/g para substituir strings no intervalo da linha 1 a 10 
+* Tecle :1;10 s/nologin/yeslogin/g para substituir strings no intervalo da linha 1 a 10 
+* Tecle :g/nologin/d para remover linhas que contêm a string nologin 
+* Tecle :1;10 :g/nologin/d para remover linhas que contêm uma string em intervalos
+
+* :g/string/d   Remove uma linha inteira que contem a string
