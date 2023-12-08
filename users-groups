@@ -37,3 +37,10 @@ $ w
 
 * usermod : Ele permite a administração de diversas propriedades de usuário, como o nome do grupo principal, diretório home, shell, e muito mais.
 $ usermod -g NOVO_GRUPO NOME_DO_USUÁRIO
+
+* chage : utilisado para politicas de senha
+$ chage -l rafael (verifica a politica para o usuario)
+$ chage -M 30 -m 1 rafael
+
+* groupadd : adiciona grupos
+$ groupadd financeiro
