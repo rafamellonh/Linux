@@ -25,5 +25,6 @@ timedatectl
 timedatectl list-timezones
 sudo timedatectl set-timezone America/New_York
 timedatectl
-TZ="America/New_York" date   : verifica o timezone 
+TZ="America/New_York" date   : verifica o timezone
+timedatectl list-timezones | grep -i "Sao"
 ```
