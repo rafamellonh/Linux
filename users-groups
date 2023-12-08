@@ -5,3 +5,15 @@
 * /etc/gshadow → Armazena as senhas dos grupos.
 * /etc/logins.defs → Armazena configurações default para a criação de usuários.
 * /etc/skel → Armazena o conteúdo que será copiado ao home do usuário criado.
+
+* Componentes do /etc/passwd :
+
+1ª →Login do usuário.
+2ª →Senha do usuário (x representa senha no shadow).
+3ª →UID – Número único que identifica o usuário no sistema.
+4ª →GID – Identificação de GRUPO Primário do Usuário.
+5ª →Informações adicionais do usuário (Nome, Departamento, etc).
+6ª →Home – Localização do Diretório Pessoal do Usuário.
+7ª →Shell Padrão que o usuário irá usar se logar no terminal.
+
+* rafael:x:1001:1001:Rafael Silva:/home/rafael:/bin/bash
