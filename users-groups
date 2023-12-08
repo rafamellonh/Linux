@@ -17,3 +17,13 @@
 7ª →Shell Padrão que o usuário irá usar se logar no terminal.
 
 * rafael:x:1001:1001:Rafael Silva:/home/rafael:/bin/bash
+
+* UID 0 = root
+* UID :
+  1 a 999: usuários de sistema
+  1000 a 65535: usuários normais
+
+* GID 0 = root
+* GID  : 
+  1 a 999: grupos de sistema
+  1000 a 65535: grupos normais
