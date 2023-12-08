@@ -27,3 +27,13 @@
 * GID  : 
   1 a 999: grupos de sistema
   1000 a 65535: grupos normais
+
+* Comando administrativo (mostra o conteudo)
+$ getent passwd
+$ getent group
+$ id user
+$ who
+$ w
+
+* usermod : Ele permite a administração de diversas propriedades de usuário, como o nome do grupo principal, diretório home, shell, e muito mais.
+$ usermod -g NOVO_GRUPO NOME_DO_USUÁRIO
