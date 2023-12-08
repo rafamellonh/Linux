@@ -17,3 +17,13 @@ Birth: - 2023-01-01 12:34:50.789012345 +0000
 ```
 
 * ``` ln -s  ``` : cria links (atalhos)  ``` ln -s /var/log /opt/log/ ```
+
+* TIMEZONE
+
+```
+timedatectl
+timedatectl list-timezones
+sudo timedatectl set-timezone America/New_York
+timedatectl
+TZ="America/New_York" date   : verifica o timezone 
+```
