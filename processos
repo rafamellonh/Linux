@@ -14,3 +14,29 @@ l → Processo que possui múltiplas threads;
 L → Processo que possui páginas travadas na memória;
 N → Processo que foi definido com uma prioridade diferente da padrão, tendo sido através de
 comandos executados pelo usuário.
+
+
+Parâmetros do comando ps:
+A → Mostra todos os processos não associados com um terminal;
+U → Exibe o nome do usuário que iniciou determinado processo e a hora em que isso ocorreu;
+X → Exibe os processos que não estão associados a terminais;
+
+Outras informações disponibilizadas pelo comando ps:
+% MEM → Porcentagem da memória usada ;
+VSZ → Indica o tamanho virtual do processo ;
+RSS → Resident Set Size, indica a quantidade de memória em uso (KB);
+TTY → Indica o identificador do terminal do processo ;
+STAT → Indica o estado atual do processo , sendo representado
+por uma letra conforme a descrição da próxima página
+
+
+Descrição dos comandos
+● ps — Exibe informações sobre o estado dos processos em execução.
+  $ sudo ps aux
+● pstree — Mostra a estrutura de processos em execução no sistema em forma de árvore.
+  $ sudo pstree
+  $ sudo pstree -p -a
+● pgrep — Usa expressões regulares semelhante ao comando grep, buscando por parte do
+nome do processo, retornando apenas seu PID.
+  $ sudo pgrep -l rsyslog
+  $ sudo pgrep -l rsys
