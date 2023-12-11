@@ -1,0 +1,12 @@
+# Network
+
+Nome do Servidor: 
+  ● /etc/sysconfig/network ou /etc/hostname
+Rede (IP,etc):
+  ● /etc/sysconfig/network-scripts/ifcfg-<interface>
+Roteador Padrão: 
+  ● /etc/sysconfig/network-scripts/ifcfg-<interface>
+Servidor DNS: 
+  ● /etc/resolv.conf
+Resolução Interna:   
+  ● /etc/hosts
