@@ -1,0 +1,16 @@
+D → Processo morto (usually IO).
+R → Running (na fila de processos).
+S → Dormindo interruptamente (aguardando um evento terminar).
+T → Parado, por um sinal de controle.
+Z → Zombie, terminado mas não removido por seu processo pai
+
+Ao efetuar listagem de processos as letras acima podem ser combinadas ou acrescidas dos
+seguintes valores:
+> → Processo rodando com prioridade maior que a padrão;
+< → Processo rodando com prioridade menor que a padrão;
++ → Processo pai, ou seja, é um processo que possui processos filhos;
+S → Processo tipo “session leader”, um processo que possui processos dependentes dele;
+l → Processo que possui múltiplas threads;
+L → Processo que possui páginas travadas na memória;
+N → Processo que foi definido com uma prioridade diferente da padrão, tendo sido através de
+comandos executados pelo usuário.
