@@ -1,0 +1,19 @@
+Liste as partições do disco SDB e SDC, execute o comando fdisk com a flag -l:
+# fdisk -l /dev/sdb
+# fdisk -l /dev/sdc
+
+Crie uma partição primaria de 10GB através do comando fdisk com as seguintes opções:
+# fdisk /dev/sdb
+Command (m for help): m <TECLE ENTER>
+Command (m for help): n <TECLE ENTER>
+Partition type:
+Select (default p): p <TECLE ENTER>
+Partition number (1-4, default 1): 1 <TECLE ENTER>
+First sector (2048-167772159, default 2048): <TECLE ENTER>
+Last sector, +sectors or +size{K,M,G}: +10G <TECLE ENTER>
+
+
+Faça a releitura da tabela de particionamento, verifique as novas partições criadas:
+# partprobe
+# fdisk -l /dev/sdb
+# cat /proc/partitions
