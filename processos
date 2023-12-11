@@ -62,3 +62,15 @@ $ sudo lsof -u suporte
 ● Liste conexões ativas e quem está usando o /bin/bash:
 $ sudo lsof -i
 $ sudo lsof /bin/bash
+
+●  Comando Descrição
+
+$ jobs Permite listar os programas em segundo plano do terminal atual
+$ fg Envia o programa para o primeiro plano.
+$ bg Permite a execução de um comando que está parado e em segundo plano.
+$ nohup Iniciar um programa em segundo plano sem prendê-lo ao terminal.
+  $ nohup ntopng -i enp0s8 -w 3000 &
+$ nice Inicia um programa já com prioridade alterada.
+$ renice Altera a prioridade de um programa em execução
+
+
