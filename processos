@@ -49,3 +49,16 @@ pgrep que pode ser passado apenas uma parte do nome.
   $ sudo top
   $ sudo top -d 1
   $ sudo top -n 1
+
+
+● Para utilizar uma ferramenta mais avançada na visualização de processos, instale o htop:
+$ sudo apt install htop
+$ sudo htop
+
+● Liste todos os arquivos abertos e/ou abertos por usuário suporte:
+$ sudo lsof
+$ sudo lsof -u suporte
+
+● Liste conexões ativas e quem está usando o /bin/bash:
+$ sudo lsof -i
+$ sudo lsof /bin/bash
