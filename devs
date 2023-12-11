@@ -1,0 +1,19 @@
+/proc/cmdline → Argumentos passados para o Kernel pelo loader (grub);
+/proc/cpuinfo → Informações específicas sobre processador;
+/proc/filesystems → Sistemas de arquivos suportados pelo Kernel;
+/proc/interrupts → Informações sobre o número de interrupções e seus dispositivos;
+/proc/meminfo → Informações sobre a memória da máquina;
+/proc/modules → Informações sobre os módulos carregados na memória;
+/proc/partitions → Partições conhecidas pelo sistema;
+/proc/uptime → Tempo que o sistema está ligado.
+
+Para listar dispositivos PCI conectados em sua máquina, execute o comando lspci:
+$ lspci
+$ lspci -s 00:03.0 -v
+
+Para listar dispositivos USB conectados em sua máquina, execute o comando lsusb:
+$ lsusb
+$ lsusb -d 80ee:0021 -v
+
+Para listar módulos carregados em seu sistema execute o comando lsmod:
+$ lsmod
