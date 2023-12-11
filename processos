@@ -40,3 +40,12 @@ Descrição dos comandos
 nome do processo, retornando apenas seu PID.
   $ sudo pgrep -l rsyslog
   $ sudo pgrep -l rsys
+
+● pidof — Permite finalizar um processo passando o o nome exato do daemon, diferente do
+pgrep que pode ser passado apenas uma parte do nome.
+  $ sudo pidof crond
+  $ sudo pidof cro
+● top — Monitora o desempenho do sistema.
+  $ sudo top
+  $ sudo top -d 1
+  $ sudo top -n 1
