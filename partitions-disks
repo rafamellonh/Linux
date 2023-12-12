@@ -31,3 +31,34 @@ $ mkswap /dev/sdb5
 
 # Crie os pontos de montagem para montar as particoes 
 $ mount /dev/sdb1 /mnt/backup
+
+# Para ativar o swap ou desativar 
+$ swapon /dev/sdb5
+$ swapon -s
+
+$ swapoff /dev/sdb5
+$ swapoff -s
+
+# Verificar UUID dos dispositivos
+$ blkid
+$ ls -l /dev/disk/by-uuid
+
+Use também o tune2fs
+$ tune2fs -l /dev/sdb1 | egrep -i “name|uuid“
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
