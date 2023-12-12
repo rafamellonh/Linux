@@ -46,7 +46,8 @@ $ ls -l /dev/disk/by-uuid
 Use também o tune2fs
 $ tune2fs -l /dev/sdb1 | egrep -i “name|uuid“
 
-
+Para definir apelidos para particao
+$ tune2fs -L backup /dev/sdb1
 
 
 
