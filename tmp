@@ -2,19 +2,18 @@ version: '3'
 
 services:
   db:
-    image: mariadb
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    image: mysql:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: <suaSenhaDoBancoDeDados>
+      MYSQL_ROOT_PASSWORD: @#8520@#
       MYSQL_DATABASE: matomo
       MYSQL_USER: matomo
-      MYSQL_PASSWORD: <suaSenhaDoMatomo>
+      MYSQL_PASSWORD: @#8520@#
     volumes:
       - db_data:/var/lib/mysql
 
   matomo:
-    image: matomo
+    image: matomo:latest
     restart: always
     ports:
       - "8080:80"
@@ -23,7 +22,7 @@ services:
       MATOMO_DATABASE_HOST: "db"
       MATOMO_DATABASE_PORT: "3306"
       MATOMO_DATABASE_USER: "matomo"
-      MATOMO_DATABASE_PASSWORD: <suaSenhaDoMatomo>
+      MATOMO_DATABASE_PASSWORD: @#8520@#
       MATOMO_DATABASE_DBNAME: "matomo"
       MATOMO_DATABASE_TABLES_PREFIX: "matomo_"
     volumes:
