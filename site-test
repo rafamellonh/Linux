@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa: Cachorro ou Gato?</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        main {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        .custom-radio {
+            position: relative;
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .custom-radio input[type="radio"] + span {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            line-height: 24px;
+            display: inline-block;
+        }
+        .custom-radio span {
+            position: relative;
+            display: inline-block;
+            padding-left: 35px; /* Ajuste no padding para evitar sobreposição */
+            line-height: 24px;
+        }
+        .custom-radio span:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #333;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+        }
+        .custom-radio input[type="radio"]:checked + span:before {
+            background-color: #57b846;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #57b846;
+        }
+        p {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .result-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+        }
+        .result-item {
+            flex: 1;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Prefere Cachorro ou Gato?</h1>
+        <form id="preferenceForm">
+            <label class="custom-radio">
+                <input type="radio" name="preference" value="dog"><span>Cachorro</span>
+            </label>
+            <label class="custom-radio">
+                <input type="radio" name="preference" value="cat"><span>Gato</span>
+            </label>
+            <button type="button" onclick="submitPreference()">Enviar Voto</button>
+        </form>
+        <div class="result-container">
+            <div class="result-item" id="dogResult">Cachorro: 0 votos</div>
+            <div class="result-item" id="catResult">Gato: 0 votos</div>
+        </div>
+    </main>
+
+    <script>
+        var dogCount = parseInt(localStorage.getItem('dogCount')) || 0;
+        var catCount = parseInt(localStorage.getItem('catCount')) || 0;
+
+        function submitPreference() {
+            var preference = document.querySelector('input[name="preference"]:checked');
+            var dogResult = document.getElementById('dogResult');
+            var catResult = document.getElementById('catResult');
+
+            if (preference) {
+                if (preference.value === 'dog') {
+                    dogCount++;
+                    dogResult.textContent = 'Cachorro: ' + dogCount + ' votos';
+                    localStorage.setItem('dogCount', dogCount);
+                } else if (preference.value === 'cat') {
+                    catCount++;
+                    catResult.textContent = 'Gato: ' + catCount + ' votos';
+                    localStorage.setItem('catCount', catCount);
+                }
+            }
+
+            // Limpa os votos após 20 segundos
+            setTimeout(function() {
+                localStorage.removeItem('dogCount');
+                localStorage.removeItem('catCount');
+                resetResults();
+            }, 20000);
+        }
+
+        function resetResults() {
+            dogCount = 0;
+            catCount = 0;
+            var dogResult = document.getElementById('dogResult');
+            var catResult = document.getElementById('catResult');
+            dogResult.textContent = 'Cachorro: 0 votos';
+            catResult.textContent = 'Gato: 0 votos';
+        }
+
+        window.onload = function() {
+            var dogResult = document.getElementById('dogResult');
+            var catResult = document.getElementById('catResult');
+            dogResult.textContent = 'Cachorro: ' + dogCount + ' votos';
+            catResult.textContent = 'Gato: ' + catCount + ' votos';
+        };
+    </script>
+</body>
+</html>
