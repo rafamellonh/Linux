@@ -1,5 +1,5 @@
 ```
-Output the current certificate information (for future validation):
+Output the current certificate information (for future validation): It's possible check the info about the certificat
 openssl x509 -in certificat.com.crt -text -noout
 
 # This will create the request for file.csr
