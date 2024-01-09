@@ -1,8 +1,10 @@
 ```
+Output the current certificate information (for future validation):
 openssl x509 -in certificat.com.crt -text -noout
 
 # This will create the request for file.csr
 openssl x509 -x509toreq -conf openss-public.cnf -signkey CERT-public.key -in CERT-public.crt -out CERT-public.csr
+openssl req -out management-foundation-dev.ent.cgi.com.csr -config /etc/pki/tls/openssl.cnf -key etc/pki/tls/private/localhost.key -new
 
 ```
 
