@@ -40,3 +40,9 @@ rpm -qi bash   (verifica o status do app instalado)
 ```
 systemctl list-units --type=service --state=active > services.txt
 ```
+
+* certificat
+```
+openssl x509 -in NameCert.crt -text -noout
+```
+
