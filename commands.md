@@ -35,3 +35,8 @@ rpm -qa   (lista todos apps instalados)
 rpm -qa | grep htop
 rpm -qi bash   (verifica o status do app instalado)
 ```
+
+* services
+```
+systemctl list-units --type=service --state=active > services.txt
+```
