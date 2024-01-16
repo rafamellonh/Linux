@@ -60,4 +60,17 @@ sudo yum update
 sudo yum --security update
 ```
 
+##### How do I update a single package?
+```
+sudo yum update pkg_name
+sudo yum update bash
+
+```
+
+##### It is also possible to install all updates except kernel and bash packages as follows:
+
+```
+sudo yum -x 'kernel*' -x 'bash*' update
+```
+
 
