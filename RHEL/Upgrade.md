@@ -1,6 +1,7 @@
 ##### Show information about update advisories, run:
 
-``` sudo yum updateinfo
+```
+sudo yum updateinfo
 
 [root@localhost rafael]# yum updateinfo
 Updating Subscription Management repositories.
