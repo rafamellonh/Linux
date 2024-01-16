@@ -29,6 +29,20 @@ Updates Information Summary: available
      8 Bugfix notice(s)
 ```
 
+
+##### These commands are useful
+
+```
+sudo yum check-update
+
+sudo yum check-update | more
+
+sudo yum check-update | grep bash
+
+sudo yum check-update
+```
+
+
 ##### Show information about update advisories, run:
 
 ##### Reboot the system if kernel was updated by typing ```sudo reboot ``` command.
