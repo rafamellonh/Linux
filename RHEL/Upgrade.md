@@ -16,6 +16,13 @@ Updates Information Summary: available
         10 Moderate Security notice(s)
          1 Low Security notice(s)
      8 Bugfix notice(s)
+```
 
+##### Show information about update advisories, run:
+
+##### Reboot the system if kernel was updated by typing ```sudo reboot ``` command.
+
+```
+sudo yum update
 
 ```
