@@ -53,3 +53,11 @@ sudo yum check-update
 sudo yum update
 
 ```
+
+##### One can only apply security related updates to the machines, run:
+
+```
+sudo yum --security update
+```
+
+
