@@ -1,3 +1,14 @@
+##### Check kernel version
+
+```
+uname -r
+
+uname -a
+
+cat /proc/version
+```
+
+
 ##### Show information about update advisories, run:
 
 ```
