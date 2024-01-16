@@ -1,8 +1,7 @@
 ##### Show information about update advisories, run:
 
-``` sudo yum updateinfo ```
+``` sudo yum updateinfo
 
-```
 [root@localhost rafael]# yum updateinfo
 Updating Subscription Management repositories.
 Red Hat Enterprise Linux 8 for x86_64 - AppStream (RPMs)                             13 kB/s | 4.5 kB     00:00
