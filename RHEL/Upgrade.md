@@ -5,6 +5,8 @@ uname -r
 
 uname -a
 
+uname -mrs
+
 cat /proc/version
 ```
 
