@@ -14,8 +14,20 @@ openssl req -out foundation-dev.ent.org.com.csr -config /etc/pki/tls/openssl.cnf
 openssl req -new -key stratus-nonprod-public.key -out stratus-nonprod-public.csr -config openssl-public.cnf
 
 
+```
 
 ```
+check public key between .csr and .crt, if it is the same, the .csr is good.
+
+* CRT :  $openssl x509 -noout -modulus -in /etc/pki/tls/certs/certificat.crt | openssl md5
+
+* CSR :  $openssl req -noout -modulus -in /etc/pki/tls/private/certificat.csr | openssl md5
+
+
+```
+
+
+
 
 
 * CSR : "Certificate Signing Request" - "Pedido de Assinatura de Certificado" É em CSR é um bloco de texto codificado em ASN.1 (Abstract Syntax Notation One) que contém informações sobre a organização e a chave pública a ser incluída em um certificado SSL" 
