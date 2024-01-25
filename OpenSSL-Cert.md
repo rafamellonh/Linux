@@ -23,6 +23,8 @@ check public key between .csr and .crt, if it is the same, the .csr is good.
 
 * CSR :  openssl req -noout -modulus -in /etc/pki/tls/private/certificat.csr | openssl md5
 
+![Cert.](/images/cert.jpg "This is a sample image.")
+
 
 ```
 
