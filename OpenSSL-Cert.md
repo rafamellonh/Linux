@@ -19,9 +19,9 @@ openssl req -new -key stratus-nonprod-public.key -out stratus-nonprod-public.csr
 ```
 check public key between .csr and .crt, if it is the same, the .csr is good.
 
-* CRT :  $openssl x509 -noout -modulus -in /etc/pki/tls/certs/certificat.crt | openssl md5
+* CRT :  openssl x509 -noout -modulus -in /etc/pki/tls/certs/certificat.crt | openssl md5
 
-* CSR :  $openssl req -noout -modulus -in /etc/pki/tls/private/certificat.csr | openssl md5
+* CSR :  openssl req -noout -modulus -in /etc/pki/tls/private/certificat.csr | openssl md5
 
 
 ```
