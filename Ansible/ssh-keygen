@@ -1,3 +1,9 @@
 $ ssh-keygen
 
 # id_rsa.pu
+$ ssh-copy-id rafael@192.168.2.168
+
+# Para criar um `atalho` para a conexao ser mais rapida
+$ ssh-agent bash
+$ ssh-add id_rsa.pub
+ssh servidor-que-quer-conectar
