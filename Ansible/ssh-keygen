@@ -7,3 +7,10 @@ $ ssh-copy-id rafael@192.168.2.168
 $ ssh-agent bash
 $ ssh-add id_rsa.pub
 ssh servidor-que-quer-conectar
+
+sudo visudo
+rafael ALL=(ALL) NOPASSWD: ALL
+Salve e feche o arquivo. No visudo, você pode pressionar Ctrl + X, depois Y para confirmar as alterações e, em seguida, pressionar Enter.
+
+# -b chama o sudo e -k digita a senha do ssh
+$ ansible -i hosts vm03 -m apt -a "name=cmatrix state=present" -b -k
