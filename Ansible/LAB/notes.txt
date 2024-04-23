@@ -1,0 +1,22 @@
+sudo apt update
+$ sudo apt install software-properties-common
+$ sudo add-apt-repository --yes --update ppa:ansible/ansible
+$ sudo apt install ansible
+
+$ ansible -i hosts all -m ping
+
+$ ansible -i hosts all -m apt -a "name=cmatrix state=present"
+$ ansible -i hosts vm02 -m apt -a "name=cmatrix state=present"
+
+$ ansible -i hosts vm02 -m apt -a "name=cmatrix state=present" -b 
+$ ansible -i hosts vm02 -m apt -a "name=cmatrix state=present" -b -k
+$ ansible -i hosts all -m shell -a "ifconfig eth0"
+
+$ ansible -i hosts all -m git -a "repo="https://github.com/rafamellonh/Linux.git dest=/home/rafael/git"
+$ ansible -i hosts all -m setup -a "filter=hostname"
+$ ansible -i hosts all -m setupu      (pega as informacoes tipo de hardware e etc)
+$ ansible -i hosts all -m setup -a "filter=ansible_processor"
+
+$ ansible-playbook -i hosts 01_playbook.yml 
+
+$ ansible-galaxy init provisioning

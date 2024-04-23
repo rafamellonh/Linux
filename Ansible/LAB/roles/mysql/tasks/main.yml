@@ -1,0 +1,55 @@
+---
+# tasks file for mysql
+- name: Install Mariadb server - RedHat
+  yum:
+    name:
+      - mariadb-server
+      - MySQL-python
+    state: present
+  when: (ansible_facts['os_family'] == "RedHat")
+
+- name: Install Mariadb server - Debian
+  apt:
+    update_cache: yes
+    name:
+      - mariadb-server
+      #- python-pymysql
+    state: present
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: Instalar pymysql via pip3
+  pip:
+    name: pymysql
+    executable: pip
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: Start Mariadb
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Criando um banco de dados para ser utilisado pelo Wordpress - Debian
+  mysql_db:
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    name: "{{ db_wp_name }}"
+    state: present
+  when: (ansible_facts['os_family'] == "Debian")
+
+- name: Create user with password, all database privileges in database - Debian
+  mysql_user:
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    name: "{{ db_wp_username }}"
+    password: "{{ db_wp_password }}"
+    priv: "{{ db_wp_name }}.*:ALL,GRANT"
+    state: present
+  when: (ansible_facts['os_family'] == "Debian")
+
+
+- name: Remove all anonymous user accounts - Debian
+  mysql_user:
+    login_unix_socket: "/var/run/mysqld/mysqld.sock"
+    name: ''
+    host_all: yes
+    state: absent
+  when: (ansible_facts['os_family'] == "Debian")

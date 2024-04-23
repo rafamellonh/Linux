@@ -1,0 +1,30 @@
+---
+# handlers file for apache
+- name: 'enableApache2'
+  service:
+    name: apache2
+    enabled: yes
+
+- name: 'addInHostsFile'
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ item }}"
+    create: yes
+  loop: 
+    - "{{inventory_hostname}} {{ site_url }}"
+    - "{{inventory_hostname}} {{ site_domain }}"
+
+- name: InstallWordPress
+  unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: "{{ site_folder }}"
+    remote_src: yes
+
+- name: SetPermissionWP-Debian
+  file:
+    path: "{{ site_folder }}/wordpress"
+    state: directory
+    owner: www-data
+    group: www-data
+    recurse: yes
+  when: (ansible_facts['os_family'] == "Debian")

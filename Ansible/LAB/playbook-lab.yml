@@ -1,0 +1,70 @@
+
+---
+- hosts: web
+  become: yes
+
+
+# VARIAVEIS
+  vars:
+    default_dir: /opt/custom
+    teste: "{{ default_dir }}/temp"
+    dict_dir: {
+      scripts: "{{ default_dir }}/scripts",
+      backup: "{{ default_dir }}/backup",
+      log: "{{ default_dir }}/log",
+      tmp: "{{ default_dir }}/temp"
+    }
+
+  tasks:
+  - name: Instala pacote nginx
+    apt:
+      update_cache: yes
+      name: nginx
+      state: present
+    when: (ansible_facts['distribution'] == "Ubuntu")
+
+  - name: Define hostname servidores
+    hostname:
+      name: "{{ hostname }}"
+
+  #- name: Cria diretorio padrao
+  #  ansible.builtin.file:
+  #    path: "{{ default_dir }}"
+  #    state: directory
+
+  - name: Cria diretorio padrao
+    ansible.builtin.file:
+      path: "{{ item }}"
+      owner: rafael
+      group: rafael
+      mode: "0600"
+      state: directory
+    with_items:
+    - "{{ dict_dir.scripts }}"
+    - "{{ dict_dir.backup }}"
+    - "{{ dict_dir.log }}"
+    - "{{ dict_dir.tmp }}"
+
+  - name: Cria arquivo
+    ansible.builtin.file:
+      path: "{{ default_dir }}/teste.py"
+      state: touch
+      owner: rafael
+      group: rafael
+      mode: "0777"
+      modification_time: preserve
+      access_time: preserve
+
+  - name: exemplo de debug
+    debug:
+      msg: "{{ teste }}"
+
+  - name: exemplo de register
+    ansible.builtin.shell: "date -u"
+    register: linux_date
+
+  - name: "exibindo register"
+    debug:
+      msg: "{{ linux_date.stdout }}"
+      
+      

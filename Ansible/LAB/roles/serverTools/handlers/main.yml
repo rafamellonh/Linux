@@ -1,0 +1,14 @@
+---
+# handlers file for serverTools
+- name: addInHostsFile
+  lineinfile:
+    path: /etc/hosts
+    line: "127.0.0.1 {{ hostname }}"
+
+- name: Restart Server
+  reboot:
+    
+#- name: enable yum-utils
+#  shell:
+#    cmd: "yum-config-manager remi-php74"
+#  when: ansible_facts['os_family'] == 'RedHat' and ansible_facts['distribuition_major_version'] == '7'
