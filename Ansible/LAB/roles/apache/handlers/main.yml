@@ -28,3 +28,12 @@
     group: www-data
     recurse: yes
   when: (ansible_facts['os_family'] == "Debian")
+
+- name: 'enableSite'
+  command: a2ensite {{ log_prefix }}.conf
+
+- name: 'reloadApache2'
+  service:
+    name: apache2
+    state: reloaded
+    enabled: yes
