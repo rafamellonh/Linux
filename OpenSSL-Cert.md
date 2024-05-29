@@ -63,6 +63,7 @@ MIIEpAIBAAKCAQEAy3FVHEEosFX1OJU5.... (certificados raiz)
 
 ```
 Create an OpenSSL configuration file named san.cnf using the following information.
+
 [ req ]
 default_bits       = 2048
 distinguished_name = req_distinguished_name
