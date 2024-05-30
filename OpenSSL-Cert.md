@@ -50,9 +50,11 @@ entre os cabeçalhos e rodapés. Em alguns casos, você pode encontrar arquivos 
 MIIDITCCAoqgAwIBAgIUD9AYnC0NWojQ.... (certificado)
 -----END CERTIFICATE-----
 -----BEGIN CERTIFICATE-----
+
 MIIDITCCAoqgAwIBAgIUD9AYnC0NWojQ.... (certificado intermediário ou certificado de autoridade intermediária)
 -----END CERTIFICATE-----
 -----BEGIN CERTIFICATE-----
+
 MIIEpAIBAAKCAQEAy3FVHEEosFX1OJU5.... (certificados raiz)
 -----END CERTIFICATE-----
 
