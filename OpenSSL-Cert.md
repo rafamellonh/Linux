@@ -45,19 +45,21 @@ entre os cabeçalhos e rodapés. Em alguns casos, você pode encontrar arquivos 
 
 
 * se o certificado usa Bundle, trocar so a primeira parte do arquivo e comparar as outras duas com o arquivo ChainBundle2 que vai receber.
-
+```
  -----BEGIN CERTIFICATE-----
 MIIDITCCAoqgAwIBAgIUD9AYnC0NWojQ.... (certificado)
 -----END CERTIFICATE-----
+```
+```
 -----BEGIN CERTIFICATE-----
-
 MIIDITCCAoqgAwIBAgIUD9AYnC0NWojQ.... (certificado intermediário ou certificado de autoridade intermediária)
 -----END CERTIFICATE-----
+```
+```
 -----BEGIN CERTIFICATE-----
-
 MIIEpAIBAAKCAQEAy3FVHEEosFX1OJU5.... (certificados raiz)
 -----END CERTIFICATE-----
-
+```
 
 
 
