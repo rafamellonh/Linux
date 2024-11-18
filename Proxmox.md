@@ -1,5 +1,5 @@
 ## Install Wifi 
-
+```
 * apt install wpasupplicant wireless-tools -y
 * 
 ip link set wlp2s0 up
@@ -61,3 +61,4 @@ Aqui está o que acontece:
 vmbr0: É configurada como uma bridge sem portas físicas (bridge "local").
 As VMs serão configuradas para usar vmbr0 como rede, com IPs na faixa 10.0.0.x/24.
 O tráfego será mascarado 
+```
