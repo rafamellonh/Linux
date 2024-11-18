@@ -6,19 +6,19 @@ ip link set wlp2s0 up
 
 ip link show wlp2s0
 
-iwlist wlan0 scan | grep ESSID
+iwlist wlp2s0 scan | grep ESSID
 
 sudo wpa_passphrase "SSID" "PASSWORD" > /etc/wpa_supplicant/wpa_supplicant.conf
 
-wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+wpa_supplicant -B -i wlp2s0 -c /etc/wpa_supplicant/wpa_supplicant.conf
 
-dhclient wlan0
+dhclient wlp2s0
 
 nano /etc/network/interfaces
 
-auto wlan0
+auto wlp2s0
 
-iface wlan0 inet dhcp
+iface wlp2s0 inet dhcp
 
     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 	
