@@ -25,7 +25,7 @@ iface wlp2s0 inet dhcp
 systemctl restart networking
 
 
-Por que o Wi-Fi não funciona diretamente em um bridge?
+## Por que o Wi-Fi não funciona diretamente em um bridge?
 A interface Wi-Fi (wlp2s0) não pode ser adicionada diretamente a um bridge tradicional no Linux. Isso ocorre porque o padrão 802.11 não suporta múltiplos endereços MAC conectados diretamente (como ocorre com VMs em uma bridge).
 Para resolver isso, você pode usar o recurso masquerading (NAT) ou configurar um Access Point (AP).
 1. Configurar Wi-Fi para VMs com NAT
@@ -50,9 +50,9 @@ iface wlp2s0 inet static
         post-up iptables -A FORWARD -i vmbr0 -o wlp2s0 -j ACCEPT
         post-up iptables -A FORWARD -i wlp2s0 -o vmbr0 -j ACCEPT
 
-auto vmbr0
-iface vmbr0 inet static
-        address 10.0.0.1/24
+auto vms
+iface vms inet static
+        address 192.168.100.1/24
         bridge-ports none
         bridge-stp off
         bridge-fd 0
