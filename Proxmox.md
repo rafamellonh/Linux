@@ -60,5 +60,50 @@ Aqui está o que acontece:
 
 vmbr0: É configurada como uma bridge sem portas físicas (bridge "local").
 As VMs serão configuradas para usar vmbr0 como rede, com IPs na faixa 10.0.0.x/24.
-O tráfego será mascarado 
+O tráfego será mascarado
+
+
+
+## Install dnsamasq para o dhcp nas vms
+
+Sim, é possível configurar para que as VMs obtenham IPs automaticamente (via DHCP) usando a configuração da Etapa 1 (NAT). Para isso, você precisará adicionar um servidor DHCP no host Proxmox para atribuir os IPs às VMs conectadas ao bridge vmbr0.
+
+Aqui está como fazer isso:
+
+1. Instalar e configurar o dnsmasq
+O dnsmasq é uma ferramenta leve que combina um servidor DHCP e DNS, ideal para este tipo de configuração.
+
+a) Instalar o dnsmasq
+No Proxmox, instale o dnsmasq:
+
+bash
+Copiar código
+apt update
+apt install dnsmasq
+b) Configurar o dnsmasq
+Edite ou crie o arquivo de configuração em /etc/dnsmasq.d/vmbr0.conf:
+
+plaintext
+Copiar código
+
+interface=vmbr0                  # Interface usada pelo DHCP
+bind-interfaces                  # Vincular apenas a essa interface
+dhcp-range=192.168.100.100,192.168.100.200,12h  # Faixa de IPs e tempo de lease
+dhcp-option=3,192.168.100.1      # Gateway (IP do host no vmbr0)
+dhcp-option=6,8.8.8.8,8.8.4.4    # Servidores DNS (Google DNS)
+
+
+c) Reiniciar o dnsmasq
+Após configurar, reinicie o serviço para aplicar as alterações:
+
+bash
+Copiar código
+systemctl restart dnsmasq
+d) Verificar se o dnsmasq está ativo
+Certifique-se de que o dnsmasq está funcionando:
+
+bash
+Copiar código
+systemctl status dnsmasq
+
 ```
